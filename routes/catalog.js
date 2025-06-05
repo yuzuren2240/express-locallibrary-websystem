@@ -1,135 +1,135 @@
 const express = require("express");
 const router = express.Router();
 
-// Require our controllers.
+// コントローラーを読み込む
 const book_controller = require("../controllers/bookController");
 const author_controller = require("../controllers/authorController");
 const genre_controller = require("../controllers/genreController");
 const book_instance_controller = require("../controllers/bookinstanceController");
 
-/// BOOK ROUTES ///
+/// 本（BOOK）ルート ///
 
-// GET catalog home page.
+// カタログのホームページを取得
 router.get("/", book_controller.index);
 
-// GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
+// 本の作成画面を取得（idを使うルートより前に記述すること）
 router.get("/book/create", book_controller.book_create_get);
 
-// POST request for creating Book.
+// 本の作成リクエスト（POST）
 router.post("/book/create", book_controller.book_create_post);
 
-// GET request to delete Book.
+// 本の削除画面を取得
 router.get("/book/:id/delete", book_controller.book_delete_get);
 
-// POST request to delete Book.
+// 本の削除リクエスト（POST）
 router.post("/book/:id/delete", book_controller.book_delete_post);
 
-// GET request to update Book.
+// 本の更新画面を取得
 router.get("/book/:id/update", book_controller.book_update_get);
 
-// POST request to update Book.
+// 本の更新リクエスト（POST）
 router.post("/book/:id/update", book_controller.book_update_post);
 
-// GET request for one Book.
+// 1冊の本の詳細を取得
 router.get("/book/:id", book_controller.book_detail);
 
-// GET request for list of all Book.
+// すべての本のリストを取得
 router.get("/books", book_controller.book_list);
 
-/// AUTHOR ROUTES ///
+/// 著者（AUTHOR）ルート ///
 
-// GET request for creating Author. NOTE This must come before route for id (i.e. display author).
+// 著者の作成画面を取得（idを使うルートより前に記述すること）
 router.get("/author/create", author_controller.author_create_get);
 
-// POST request for creating Author.
+// 著者の作成リクエスト（POST）
 router.post("/author/create", author_controller.author_create_post);
 
-// GET request to delete Author.
+// 著者の削除画面を取得
 router.get("/author/:id/delete", author_controller.author_delete_get);
 
-// POST request to delete Author
+// 著者の削除リクエスト（POST）
 router.post("/author/:id/delete", author_controller.author_delete_post);
 
-// GET request to update Author.
+// 著者の更新画面を取得
 router.get("/author/:id/update", author_controller.author_update_get);
 
-// POST request to update Author.
+// 著者の更新リクエスト（POST）
 router.post("/author/:id/update", author_controller.author_update_post);
 
-// GET request for one Author.
+// 1人の著者の詳細を取得
 router.get("/author/:id", author_controller.author_detail);
 
-// GET request for list of all Authors.
+// すべての著者のリストを取得
 router.get("/authors", author_controller.author_list);
 
-/// GENRE ROUTES ///
+/// ジャンル（GENRE）ルート ///
 
-// GET request for creating a Genre. NOTE This must come before route that displays Genre (uses id).
+// ジャンルの作成画面を取得（idを使うルートより前に記述すること）
 router.get("/genre/create", genre_controller.genre_create_get);
 
-// POST request for creating Genre.
+// ジャンルの作成リクエスト（POST）
 router.post("/genre/create", genre_controller.genre_create_post);
 
-// GET request to delete Genre.
+// ジャンルの削除画面を取得
 router.get("/genre/:id/delete", genre_controller.genre_delete_get);
 
-// POST request to delete Genre.
+// ジャンルの削除リクエスト（POST）
 router.post("/genre/:id/delete", genre_controller.genre_delete_post);
 
-// GET request to update Genre.
+// ジャンルの更新画面を取得
 router.get("/genre/:id/update", genre_controller.genre_update_get);
 
-// POST request to update Genre.
+// ジャンルの更新リクエスト（POST）
 router.post("/genre/:id/update", genre_controller.genre_update_post);
 
-// GET request for one Genre.
+// 1つのジャンルの詳細を取得
 router.get("/genre/:id", genre_controller.genre_detail);
 
-// GET request for list of all Genre.
+// すべてのジャンルのリストを取得
 router.get("/genres", genre_controller.genre_list);
 
-/// BOOKINSTANCE ROUTES ///
+/// 本のインスタンス（BOOKINSTANCE）ルート ///
 
-// GET request for creating a BookInstance. NOTE This must come before route that displays BookInstance (uses id).
+// 本のインスタンス作成画面を取得（idを使うルートより前に記述すること）
 router.get(
   "/bookinstance/create",
   book_instance_controller.bookinstance_create_get
 );
 
-// POST request for creating BookInstance.
+// 本のインスタンス作成リクエスト（POST）
 router.post(
   "/bookinstance/create",
   book_instance_controller.bookinstance_create_post
 );
 
-// GET request to delete BookInstance.
+// 本のインスタンス削除画面を取得
 router.get(
   "/bookinstance/:id/delete",
   book_instance_controller.bookinstance_delete_get
 );
 
-// POST request to delete BookInstance.
+// 本のインスタンス削除リクエスト（POST）
 router.post(
   "/bookinstance/:id/delete",
   book_instance_controller.bookinstance_delete_post
 );
 
-// GET request to update BookInstance.
+// 本のインスタンス更新画面を取得
 router.get(
   "/bookinstance/:id/update",
   book_instance_controller.bookinstance_update_get
 );
 
-// POST request to update BookInstance.
+// 本のインスタンス更新リクエスト（POST）
 router.post(
   "/bookinstance/:id/update",
   book_instance_controller.bookinstance_update_post
 );
 
-// GET request for one BookInstance.
+// 1つの本のインスタンスの詳細を取得
 router.get("/bookinstance/:id", book_instance_controller.bookinstance_detail);
 
-// GET request for list of all BookInstance.
+// すべての本のインスタンスのリストを取得
 router.get("/bookinstances", book_instance_controller.bookinstance_list);
 
 module.exports = router;
