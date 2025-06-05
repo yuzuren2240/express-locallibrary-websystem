@@ -1,14 +1,14 @@
-extends layout
+layoutを継承
 
-block content
+contentブロック
   h1= title
   
-  if book_list.length
+  もしbook_listの長さがある場合
     ul
-      each book in book_list
+      各bookをbook_listから
         li
           a(href=book.url) #{book.title}
           |  (#{book.author.name})
 
-  else
-    p There are no books.
+  それ以外の場合
+    p 本がありません。
